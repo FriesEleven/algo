@@ -7,4 +7,15 @@ package code20
 要求直接在原矩阵上修改，不能使用另一个矩阵来完成旋转。
 */
 func rotate(matrix [][]int) {
+	n, m := len(matrix), len(matrix[0])
+	for i := 0; i < n; i++ {
+		for j := 0; j < i; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+		}
+	}
+	for _, row := range matrix {
+		for j := 0; j < m/2; j++ {
+			row[j], row[m-j-1] = row[m-j-1], row[j]
+		}
+	}
 }
