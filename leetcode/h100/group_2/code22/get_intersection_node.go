@@ -2,8 +2,8 @@ package code22
 
 // ListNode 是单链表节点。
 type ListNode struct {
-	Val  int
-	Next *ListNode
+	val  int
+	next *ListNode
 }
 
 /*
@@ -13,5 +13,6 @@ type ListNode struct {
 如果两个链表不存在相交节点，返回 nil。链表在函数返回后必须保持原有结构。
 */
 func getIntersectionNode(headA, headB *ListNode) (node *ListNode) {
+
 	return
 }

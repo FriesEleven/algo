@@ -7,5 +7,17 @@ package code21
 请判断目标值 target 是否存在于矩阵中。
 */
 func searchMatrix(matrix [][]int, target int) (found bool) {
+	i,j:=0,len(matrix[0])-1
+	for i<len(matrix) && j>=0{
+		if matrix[i][j]==target {
+			found=true
+			return
+		}
+		if matrix[i][j] >=target {
+			j--
+		}else {
+			i++
+		}
+	}
 	return
 }
