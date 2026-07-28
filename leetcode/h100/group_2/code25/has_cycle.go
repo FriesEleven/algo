@@ -13,5 +13,16 @@ type ListNode struct {
 如果沿着 next 指针能够再次到达某个已经访问过的节点，则链表中存在环。
 */
 func hasCycle(head *ListNode) (has bool) {
-	return
+	if head == nil || head.Next == nil {
+		return false
+	}
+	slow, fast := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return true
+		}
+	}
+	return false
 }

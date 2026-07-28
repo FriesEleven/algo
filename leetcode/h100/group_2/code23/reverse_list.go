@@ -11,6 +11,17 @@ type ListNode struct {
 
 给定单链表的头节点 head，请反转链表，并返回反转后的链表头节点。
 */
-func reverseList(head *ListNode) (newHead *ListNode) {
-	return
+func reverseList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	var pre *ListNode
+	cur := head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = next
+	}
+	return pre
 }

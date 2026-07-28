@@ -26,7 +26,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 		p2 = p2.Next
 	}
 	p1, p2 = headA, headB
-	if lena > lenb {
+	if lena < lenb {
 		p1, p2 = headB, headA
 	}
 	diff := math.Abs(float64(lena) - float64(lenb))
