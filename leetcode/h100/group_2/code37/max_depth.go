@@ -2,9 +2,9 @@ package code37
 
 // TreeNode 是二叉树节点。
 type TreeNode struct {
-	val   int
-	left  *TreeNode
-	right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 /*

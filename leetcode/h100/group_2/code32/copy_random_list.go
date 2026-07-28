@@ -2,9 +2,9 @@ package code32
 
 // Node 是带随机指针的链表节点。
 type Node struct {
-	val    int
-	next   *Node
-	random *Node
+	Val    int
+	Next   *Node
+	Random *Node
 }
 
 /*

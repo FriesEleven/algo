@@ -2,8 +2,8 @@ package code29
 
 // ListNode 是单链表节点。
 type ListNode struct {
-	val  int
-	next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 /*
