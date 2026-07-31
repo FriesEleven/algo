@@ -8,6 +8,7 @@ Get(key) 在键存在时返回值，否则返回 -1；Put(key, value) 更新或�
 超过容量时删除最久未使用的键。Get 和 Put 均应达到 O(1) 平均时间复杂度。
 */
 type LRUCache struct {
+	size int
 }
 
 func Constructor(capacity int) (cache LRUCache) {
