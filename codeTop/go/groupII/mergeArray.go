@@ -1,5 +1,14 @@
 package groupII
 
+/*
+题目：88. 合并两个有序数组
+链接：https://leetcode.cn/problems/merge-sorted-array/
+
+题目内容：
+给定两个按非递减顺序排列的整数数组 nums1 和 nums2，以及它们的有效元素数量 m 和 n。
+nums1 的长度为 m+n，请把 nums2 合并到 nums1 中，使 nums1 最终仍按非递减顺序排列。
+*/
+
 func merge1(nums1 []int, m int, nums2 []int, n int) {
 	ans := make([]int, 0, m+n)
 	i, j := 0, 0

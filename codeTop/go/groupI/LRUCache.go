@@ -1,5 +1,15 @@
 package groupI
 
+/*
+题目：146. LRU 缓存
+链接：https://leetcode.cn/problems/lru-cache/
+
+题目内容：
+设计并实现一个满足最近最少使用（LRU）策略的缓存。get(key) 在键存在时返回对应值，
+否则返回 -1；put(key, value) 更新或插入键值，容量超限时淘汰最久未使用的键。
+get 和 put 都应达到 O(1) 平均时间复杂度。
+*/
+
 import "container/list"
 
 type DoubleNode struct {

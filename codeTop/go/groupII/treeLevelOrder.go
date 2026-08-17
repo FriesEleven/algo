@@ -1,5 +1,14 @@
 package groupII
 
+/*
+题目：102. 二叉树的层序遍历
+链接：https://leetcode.cn/problems/binary-tree-level-order-traversal/
+
+题目内容：
+给定二叉树的根节点 root，按照从上到下、每层从左到右的顺序遍历节点，
+返回按层分组的节点值列表。空树返回空列表。
+*/
+
 import "algo/structure"
 
 type TreeNode = structure.TreeNode

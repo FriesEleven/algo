@@ -1,5 +1,14 @@
 package groupI
 
+/*
+题目：215. 数组中的第 K 个最大元素
+链接：https://leetcode.cn/problems/kth-largest-element-in-an-array/
+
+题目内容：
+给定整数数组 nums 和整数 k，返回数组按降序排列后的第 k 个元素。
+需要寻找的是排序意义上的第 k 大元素，而不是第 k 个不同的元素。
+*/
+
 import (
 	"container/heap"
 )

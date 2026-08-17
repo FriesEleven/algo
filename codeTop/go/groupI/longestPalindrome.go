@@ -1,5 +1,14 @@
 package groupI
 
+/*
+题目：5. 最长回文子串
+链接：https://leetcode.cn/problems/longest-palindromic-substring/
+
+题目内容：
+给定字符串 s，返回其中最长的回文子串。回文串从左向右和从右向左读取完全相同；
+存在多个最长答案时，返回任意一个即可。
+*/
+
 func longestPalindrome(s string) string {
 	str := []rune(s)
 	maxLen, strEnd := manacher(str)

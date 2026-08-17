@@ -1,5 +1,14 @@
 package groupI
 
+/*
+题目：21. 合并两个有序链表
+链接：https://leetcode.cn/problems/merge-two-sorted-lists/
+
+题目内容：
+给定两个按非递减顺序排列的链表 list1 和 list2，将它们合并为一条新的非递减链表，
+并返回合并后链表的头节点。结果链表由两个输入链表的节点连接而成。
+*/
+
 func mergeTwoLists(list1, list2 *ListNode) *ListNode {
 	if list1==nil {
 		return list2

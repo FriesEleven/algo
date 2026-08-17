@@ -1,5 +1,14 @@
 package groupI
 
+/*
+题目：25. K 个一组翻转链表
+链接：https://leetcode.cn/problems/reverse-nodes-in-k-group/
+
+题目内容：
+给定链表头节点 head 和正整数 k，每 k 个节点为一组进行翻转并返回修改后的链表。
+最后不足 k 个的节点保持原有顺序；只能改变节点之间的连接，不能只交换节点值。
+*/
+
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	if k <= 1 || head == nil {
 		return head

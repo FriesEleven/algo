@@ -1,5 +1,14 @@
 package groupI
 
+/*
+题目：15. 三数之和
+链接：https://leetcode.cn/problems/3sum/
+
+题目内容：
+给定整数数组 nums，返回所有由三个不同下标的元素组成、且元素之和为 0 的三元组。
+答案中不能包含重复的三元组，返回顺序不限。
+*/
+
 import "sort"
 
 func threeSum(nums []int) [][]int {

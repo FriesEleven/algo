@@ -1,5 +1,14 @@
 package groupII
 
+/*
+题目：33. 搜索旋转排序数组
+链接：https://leetcode.cn/problems/search-in-rotated-sorted-array/
+
+题目内容：
+一个元素互不相同的升序数组在未知位置经过旋转。给定旋转后的数组 nums 和目标值 target，
+若目标值存在则返回其下标，否则返回 -1；算法时间复杂度应为 O(log n)。
+*/
+
 func search(nums []int, target int) int {
 	l, r := 0, len(nums)-1
 	for l <= r {
