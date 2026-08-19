@@ -1,4 +1,8 @@
-package groupII
+package groupIII
+
+import "algo/structure"
+
+type TreeNode = structure.TreeNode
 
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	ans := make([][]int, 0)
