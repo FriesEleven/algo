@@ -34,9 +34,10 @@ func main() {
 		}
 
 		fmt.Fprintln(out, sum)
+		// out.Flush()
 	}
 
 	if err := in.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, "读取输入失败：", err)
+		panic("input error")
 	}
 }

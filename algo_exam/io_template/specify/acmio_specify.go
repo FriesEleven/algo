@@ -33,5 +33,6 @@ func main() {
 		}
 
 		fmt.Println(mat)
+		// out.Flush()
 	}
 }
