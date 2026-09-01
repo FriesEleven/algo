@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 )
 
 /*
@@ -72,5 +73,51 @@ func main() {
 	var s string
 	fmt.Fscan(in, &s)
 
-	// TODO: 在这里完成算法并将答案写入 out。
+	ans := solve(a, s, k)
+	fmt.Fprintln(out, ans)
+}
+
+func solve(a []int64, s string, k int) int64 {
+	weight, base := weightAndBase(a, s)
+	score := cut(weight)
+	best := selectBestK(score, k-1)
+	return base + best
+}
+
+func weightAndBase(a []int64, s string) ([]int64, int64) {
+	weights := make([]int64, len(a))
+	base := int64(0)
+	for i := range s {
+		if s[i] == '1' {
+			weights[i] = 1
+		} else {
+			weights[i] = -1
+		}
+		base += weights[i] * (a[i] + 1)
+	}
+	return weights, base
+}
+
+func cut(weight []int64) []int64 {
+	score := make([]int64, len(weight)-1)
+	sufSum := int64(0)
+	for i := len(weight) - 1; i >= 1; i-- {
+		sufSum += weight[i]
+		score = append(score, sufSum)
+	}
+	return score
+}
+
+func selectBestK(score []int64, k int) int64 {
+	sort.Slice(score, func(i, j int) bool {
+		return score[i] > score[j]
+	})
+	result := int64(0)
+	for i := 0; i < len(score) && i < k; i++ {
+		if score[i] <= 0 {
+			break
+		}
+		result += score[i]
+	}
+	return result
 }

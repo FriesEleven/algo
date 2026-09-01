@@ -70,12 +70,12 @@ func main() {
 	out := bufio.NewWriterSize(os.Stdout, 1<<20)
 	defer out.Flush()
 
-	var testCases int
-	if _, err := fmt.Fscan(in, &testCases); err != nil {
+	var group int
+	if _, err := fmt.Fscan(in, &group); err != nil {
 		return
 	}
 
-	for ; testCases > 0; testCases-- {
+	for ; group > 0; group-- {
 		var n int
 		fmt.Fscan(in, &n)
 
@@ -83,7 +83,26 @@ func main() {
 		for i := range a {
 			fmt.Fscan(in, &a[i])
 		}
-
-		// TODO: 在这里完成当前测试数据的算法，并将答案写入 out。
+		ans := solve(a)
+		fmt.Fprintln(out, ans)
 	}
+}
+
+func solve(arr []int64) int64 {
+	preSumMap := make(map[int64]int64, len(arr)+1)
+	preSumMap[0] = 1
+	preSum, ans := int64(0), int64(0)
+	for _, val := range arr {
+		preSum += val
+		exponent, power := int64(1), int64(2)
+		for power <= preSum {
+			target := preSum - power
+			cnt := preSumMap[target]
+			ans += cnt * exponent
+			exponent++
+			power <<= 1
+		}
+		preSumMap[preSum]++
+	}
+	return ans
 }
