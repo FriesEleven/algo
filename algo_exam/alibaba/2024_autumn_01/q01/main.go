@@ -1,5 +1,73 @@
 package main
 
+import (
+	"bufio"
+	"container/heap"
+	"fmt"
+	"os"
+)
+
+func main() {
+	in := bufio.NewReaderSize(os.Stdin, 1<<20)
+	out := bufio.NewWriterSize(os.Stdout, 1<<20)
+	defer out.Flush()
+
+	var n, k int
+	if _, err := fmt.Fscan(in, &n, &k); err != nil {
+		return
+	}
+
+	a := make([]int, n)
+	for i := range a {
+		fmt.Fscan(in, &a[i])
+	}
+
+	ans := solve(a, k)
+	fmt.Fprintln(out, ans)
+}
+
+func solve(arr []int, k int) int64 {
+	var h maxHeap
+	heap.Init(&h)
+	sum, score, n := int64(0), int64(0), len(arr)
+	for _, num := range arr {
+		sum += int64(num)
+	}
+	for i := n - 1; i >= 0; i-- {
+		if (i+1)%k == 0 && h.Len() != 0 {
+			score += int64(heap.Pop(&h).(int))
+		}
+		heap.Push(&h, arr[i])
+	}
+	return sum - score
+}
+
+type maxHeap []int
+
+func (h maxHeap) Len() int {
+	return len(h)
+}
+
+func (h maxHeap) Less(i, j int) bool {
+	return h[i] > h[j]
+}
+
+func (h maxHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
+}
+
+func (h *maxHeap) Push(x interface{}) {
+	*h = append(*h, x.(int))
+}
+
+func (h *maxHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[:n-1]
+	return x
+}
+
 // 题目：小红闯关
 // 试卷：2024年秋招-阿里云-研发岗-第一批笔试
 // 题目直链：https://www.nowcoder.com/questionTerminal/7ce4b75f7a304be481e73bc4dd2705a4
